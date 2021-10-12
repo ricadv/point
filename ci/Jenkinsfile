@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'pip install '
                 sh 'pip install -r requirements.txt'
                 }
             }
         stage('Unit Test') {
             steps {
-                sh 'python3 –m unittest test_point_manager'
+                sh 'python3 -m unittest test_point_manager'
             }
         }
     }
