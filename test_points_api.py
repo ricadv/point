@@ -5,7 +5,7 @@ import os
 import inspect
 from point_manager import PointManager
 from sqlalchemy import create_engine
-from base import base
+from base import Base
 
 class TestPointApi(unittest.TestCase):
 
@@ -27,7 +27,7 @@ class TestPointApi(unittest.TestCase):
         self.logPoint()
 
     def logPoint(self):
-        currentTest = self.id().spllit('.')[-1]
+        currentTest = self.id().split('.')[-1]
         callingFunction = inspect.stack()[1][3]
         print('in %s - %s()' % (currentTest, callingFunction))
     
