@@ -8,7 +8,12 @@ pipeline {
             }
         stage('Unit Test') {
             steps {
-                sh 'python3 -m unittest test_point_manager'
+                sh 'python3 test_point_manager.py'
+            }
+            post {
+                always {
+                    junit 'test-reports/*.xml'
+                }
             }
         }
     }
