@@ -1,3 +1,4 @@
+#test
 import unittest
 import points_api
 import xmlrunner
