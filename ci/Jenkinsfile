@@ -12,8 +12,13 @@ pipeline {
             }
             post {
                 always {
-                    junit 'test-reports/*.xml'
+                    junit 'api-test-reports/*.xml'
                 }
+            }
+        }
+        stage('Integration Test') {
+            steps {
+                sh 'python3 test_points_api.py'
             }
         }
     }
