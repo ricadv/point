@@ -31,14 +31,18 @@ pipeline {
 
         stage('Python Lint') {
             steps {
-                sh 'apt-get install -y pylint'
                 sh 'pip3 install pylint-fail-under'
                 sh 'sh pylint-fail-under --fail_under 5.0 *.py'
             }
         }
 
         stage('Zip Artifacts) {
-
+            steps {
+                script {
+                    sh 'zip app.zip *.py'
+                    archiveArtifacts artifacts: 'app.zip'
+                }
+            }
         }
     }
 }
