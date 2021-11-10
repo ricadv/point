@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage('Zip Artifacts) {
+        stage('Zip Artifacts') {
             steps {
                 script {
                     sh 'zip app.zip *.py'
