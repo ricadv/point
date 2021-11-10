@@ -24,7 +24,17 @@ pipeline {
             }
             post {
                 always {
-                    junit '**/test-results/*.xml'
+                    script {
+                        def test_reports_exist = fileExists 'test-reports'
+                        if (test_reports_exist) {                        
+                            junit 'test-reports/*.xml'
+                        }
+
+                        def api_test_reports_exist = fileExists 'api-test-reports'
+                        if (api_test_reports_exist) {                        
+                            junit 'api-test-reports/*.xml'
+                        }
+                    }
                 }
             }
         }
