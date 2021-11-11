@@ -15,7 +15,7 @@ pipeline {
                     for (file in files) {
                         sh "coverage run --omit*/site-packages/*,*/dist-packages/* ${file}.path"
                     }
-                    sh 'coverage run -m unittest discover'
+
                     sh 'coverage report'
                     
                 }
