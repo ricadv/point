@@ -9,7 +9,6 @@ pipeline {
         stage('Test and Coverage') {
             steps {
                 script {
-                    sh 'pip3 install coverage'
 
                     def files = findFiles(glob: '**/test-*.py')
                     for (file in files) {
@@ -40,7 +39,6 @@ pipeline {
 
         stage('Python Lint') {
             steps {
-                sh 'pip3 install pylint-fail-under'
                 sh 'sh pylint-fail-under --fail_under 5.0 *.py'
             }
         }
