@@ -13,9 +13,10 @@ pipeline {
                     def files = findFiles(glob: '**/test-*.py')
                     for (file in files) {
                         sh "coverage run --omit*/site-packages/*,*/dist-packages/* ${file}.path"
+
+                        sh 'coverage report'
                     }
 
-                    sh 'coverage report'
                     
                 }
 
