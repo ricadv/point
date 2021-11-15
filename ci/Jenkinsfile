@@ -42,7 +42,10 @@ pipeline {
             steps {
                 script {
                     def all_py = findFiles(glob: '*.py')
-                    sh "pylint-fail-under --fail_under 5.0 ${all_py}"
+                    for (i in all_py) {
+                        sh "pylint-fail-under --fail_under 5.0 ${i}"
+                    }
+                    
                 }
                 
             }
