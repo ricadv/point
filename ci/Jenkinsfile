@@ -39,14 +39,14 @@ pipeline {
 
         stage('Python Lint') {
             steps {
-                sh 'pylint-fail-under --fail_under 5.0 *.py'
+                sh "pylint-fail-under --fail_under 5.0 '*.py'"
             }
         }
 
         stage('Zip Artifacts') {
             steps {
                 script {
-                    sh 'zip app.zip *.py'
+                    sh "zip app.zip '*.py'"
                     archiveArtifacts artifacts: 'app.zip'
                 }
             }
