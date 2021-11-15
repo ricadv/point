@@ -40,7 +40,11 @@ pipeline {
 
         stage('Python Lint') {
             steps {
-                sh "pylint --fail-under=5 '*.py'"
+                script {
+                    def all_py = findFiles(glob: '*.py')
+                    sh "pylint-fail-under --fail_under 5.0 ${all_py}"
+                }
+                
             }
         }
 
