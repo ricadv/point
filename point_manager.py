@@ -5,7 +5,7 @@ from base import Base
 from point import Point
 
 
-
+class PointManager:
 
     def __init__(self, db_filename):
         """ Initializes the list of points """
