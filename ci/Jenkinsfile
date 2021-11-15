@@ -53,10 +53,10 @@ pipeline {
 
         stage('Zip Artifacts') {
             steps {
-
-                    zip app.zip '*.py'
+                script {
+                    zip zipFile: 'app.zip', glob: '*.py'
                     archiveArtifacts artifacts: 'app.zip'
-
+                }
             }
         }
     }
