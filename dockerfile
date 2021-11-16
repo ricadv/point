@@ -6,7 +6,7 @@ RUN apt-get update -y && \
 # We copy just the requirements.txt first to leverage Docker cacheCOPY./requirements.txt /app/requirements.txt
 
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip install -r /requirements.txt
 COPY . /app
 RUN cd /app && python create_tables.py
 ENTRYPOINT [ "python" ]
